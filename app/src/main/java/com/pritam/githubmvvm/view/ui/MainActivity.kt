@@ -12,7 +12,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val factFragment = FactListFragment()
+//        val factFragment = FactListFragment()
+        val factFragment = UserSerachListFragment()
         // Added Fragment
         addFragment(factFragment, R.id.fragment_container)
     }

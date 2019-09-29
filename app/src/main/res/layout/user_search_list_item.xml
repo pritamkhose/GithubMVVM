@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.pritam.githubmvvm.service.model.Item" />
+
+        <variable
+            name="isImageLoading"
+            type="boolean" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/top_bottom_margin"
+        card_view:cardCornerRadius="@dimen/top_bottom_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/frame_layout_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:foregroundGravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/imv_fact_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:adjustViewBounds="true"
+                    android:imageHref="@{item.avatar_url}"
+                    android:scaleType="fitXY"
+                    tools:ignore="ContentDescription" />
+
+                <ProgressBar
+                    android:id="@+id/loading_progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/top_bottom_margin"
+                android:paddingBottom="@dimen/top_bottom_margin">
+
+                <TextView
+                    android:id="@+id/login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/left_right_margin_12dp"
+                    android:layout_marginTop="@dimen/top_bottom_margin"
+                    android:layout_marginEnd="@dimen/left_right_margin_12dp"
+                    android:layout_marginBottom="@dimen/top_bottom_margin"
+                    android:text="@{item.login}"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/title_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/score"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/left_right_margin_12dp"
+                    android:layout_marginEnd="@dimen/left_right_margin_12dp"
+                    android:layout_marginBottom="@dimen/top_bottom_margin"
+                    android:text="@{String.valueOf(item.score)}"
+                    android:textColor="@color/description_black"
+                    android:textSize="@dimen/description_text_size" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

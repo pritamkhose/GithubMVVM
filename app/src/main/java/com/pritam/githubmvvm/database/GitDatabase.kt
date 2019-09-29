@@ -10,22 +10,22 @@ import com.pritam.githubmvvm.service.model.Fact
  * Interface which provide methods for accessing Database Access Objects
  */
 @Database(entities = [(Fact::class)], version = 1)
-abstract class FactDatabase : RoomDatabase() {
+abstract class GitDatabase : RoomDatabase() {
     /**
      * Return the Fact database object, using which application access CRUD
      * @return the Database Access Object
      */
-    abstract fun factDao(): FactDao
+    abstract fun factDao(): GitDao
 
     companion object {
-        private var databaseName = "factDB.db"
-        private var INSTANCE: FactDatabase? = null
+        private var databaseName = "git.db"
+        private var INSTANCE: GitDatabase? = null
 
         // Get database instance is not null else create new
-        fun getDatabaseInstance(context: Context): FactDatabase =
+        fun getDatabaseInstance(context: Context): GitDatabase =
                 INSTANCE ?: synchronized(this) {
                     INSTANCE ?: Room.databaseBuilder(context,
-                            FactDatabase::class.java,
+                            GitDatabase::class.java,
                             databaseName)
                             .allowMainThreadQueries()
                             .fallbackToDestructiveMigration()

@@ -8,7 +8,7 @@ import com.pritam.githubmvvm.utils.Constants
 /**
  * * Database cache which will call respective dao methods
  */
-class DatabaseCache(appDatabase: FactDatabase) {
+class DatabaseCache(appDatabase: GitDatabase) {
 
     private val factDao = appDatabase.factDao()
 

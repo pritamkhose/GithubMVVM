@@ -7,7 +7,7 @@ import androidx.room.Query
 import com.pritam.githubmvvm.service.model.Fact
 
 @Dao
-interface FactDao {
+interface GitDao {
 
     // insert facts in database
     @Insert(onConflict = OnConflictStrategy.REPLACE)

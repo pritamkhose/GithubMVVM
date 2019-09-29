@@ -2,7 +2,7 @@ package com.pritam.githubmvvm.helpers
 
 import android.content.Context
 import com.pritam.githubmvvm.database.DatabaseCache
-import com.pritam.githubmvvm.database.FactDatabase
+import com.pritam.githubmvvm.database.GitDatabase
 
 /**
  * Dependency Injector for DatabaseCache
@@ -10,7 +10,7 @@ import com.pritam.githubmvvm.database.FactDatabase
 object Injector {
 
     fun provideCache(context: Context): DatabaseCache {
-        val database: FactDatabase = FactDatabase.getDatabaseInstance(context)
+        val database: GitDatabase = GitDatabase.getDatabaseInstance(context)
         return DatabaseCache(database)
     }
 }
